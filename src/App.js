@@ -29,7 +29,9 @@ function App() {
         <div className='Container'>
           <Nav />
           <Routes>
-            <Route path='/' element={<Products />} />
+            <Route path='/' element={<Products />}>
+              <Route path='/' element={<div>I am inside products</div>} />
+            </Route>
             <Route path='/admin' element={<Admin />} />
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>

@@ -8,9 +8,11 @@ const NavStyles = css`
     color: #fff;
     text-decoration: none;
     padding: 5px 10px;
+    border-radius: 5px;
 
     &.active {
-      color: red;
+      color: #50fa7b;
+      border: 2px solid #50fa7b;
     }
   }
 `;
