@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { css } from '@emotion/css';
 
 const NavStyles = css`
@@ -8,14 +8,25 @@ const NavStyles = css`
     color: #fff;
     text-decoration: none;
     padding: 5px 10px;
+
+    &.active {
+      color: red;
+    }
   }
 `;
 
 function Nav() {
   return (
     <nav className={NavStyles}>
-      <Link to='/'>Product</Link>
-      <Link to='admin'>Admin</Link>
+      <NavLink to='/' className={({ isActive }) => (isActive ? 'active' : '')}>
+        Product
+      </NavLink>
+      <NavLink
+        to='admin'
+        className={({ isActive }) => (isActive ? 'active' : '')}
+      >
+        Admin
+      </NavLink>
     </nav>
   );
 }
