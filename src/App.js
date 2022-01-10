@@ -10,6 +10,7 @@ import {
 import Admin from './Admin/Admin';
 import Products from './Products/Products';
 import Nav from './Common/Nav';
+import ProductIndex from './Products/ProductIndex';
 
 const AppStyle = css`
   margin: 50px auto;
@@ -30,7 +31,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path='/' element={<Products />}>
-              <Route path='/' element={<div>I am inside products</div>} />
+              <Route path='/' element={<ProductIndex />} />
             </Route>
             <Route path='/admin' element={<Admin />} />
             <Route path='*' element={<Navigate to='/' />} />

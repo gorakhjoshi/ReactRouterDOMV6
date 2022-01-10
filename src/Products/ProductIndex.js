@@ -1,7 +1,14 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+
+import { listProducts } from './ProductsServices';
 
 function ProductIndex() {
-  return <div></div>;
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {});
+
+  console.log('Outside useeffect');
+  return <div>hello</div>;
 }
 
 export default ProductIndex;
