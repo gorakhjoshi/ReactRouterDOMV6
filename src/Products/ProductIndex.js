@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ProductCard from './ProductCard';
 
 import { listProducts } from './ProductsServices';
 
@@ -14,9 +15,11 @@ function ProductIndex() {
 
   return (
     <div>
-      {products?.map((product) => {
-        return <div key={product.id}>{product.name}</div>;
-      })}
+      <div>
+        {products?.map((product) => {
+          return <ProductCard key={product.id} product={product}></ProductCard>;
+        })}
+      </div>
     </div>
   );
 }
