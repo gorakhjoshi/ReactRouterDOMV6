@@ -5,10 +5,20 @@ import { listProducts } from './ProductsServices';
 function ProductIndex() {
   const [products, setProducts] = useState(null);
 
-  useEffect(() => {});
+  useEffect(() => {
+    (async () => {
+      const product = await listProducts();
+      setProducts(product);
+    })();
+  }, []);
 
-  console.log('Outside useeffect');
-  return <div>hello</div>;
+  return (
+    <div>
+      {products?.map((product) => {
+        return <div key={product.id}>{product.name}</div>;
+      })}
+    </div>
+  );
 }
 
 export default ProductIndex;
