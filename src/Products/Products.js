@@ -15,7 +15,6 @@ function Products() {
   return (
     <div className={ProductsStyle}>
       <img src='/assets/img/logo.svg' alt='Burger' className='logo' />
-      Products
       <Outlet />
     </div>
   );
