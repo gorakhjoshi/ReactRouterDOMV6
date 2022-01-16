@@ -12,6 +12,7 @@ import Products from './Products/Products';
 import Nav from './Common/Nav';
 import ProductIndex from './Products/ProductIndex';
 import Product from './Products/Product';
+import ProtectedRoute from './Common/ProtectedRoute';
 
 const AppStyle = css`
   margin: 50px auto;
@@ -35,7 +36,14 @@ function App() {
               <Route path='/' element={<ProductIndex />} />
               <Route path=':id' element={<Product />} />
             </Route>
-            <Route path='/admin' element={<Admin />} />
+            <Route
+              path='admin'
+              element={
+                <ProtectedRoute authenticated={false}>
+                  <Admin />
+                </ProtectedRoute>
+              }
+            />
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>
         </div>
