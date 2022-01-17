@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
 import { listProducts } from './ProductsServices';
+import { useLocation } from 'react-router-dom';
 
 function ProductIndex() {
+  const { state } = useLocation();
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -11,6 +13,10 @@ function ProductIndex() {
       const product = await listProducts();
       setProducts(product);
     })();
+
+    if (state) {
+      console.warn(`Your reques not found for ${state.id}`);
+    }
   }, []);
 
   return (

@@ -39,7 +39,7 @@ function App() {
             <Route
               path='admin'
               element={
-                <ProtectedRoute authenticated={false}>
+                <ProtectedRoute authenticated={true}>
                   <Admin />
                 </ProtectedRoute>
               }

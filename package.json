@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "concurrently  \"react-scripts start\" \"json-server --watch db.json --port 5000 --routes routes.json --delay 1000\"",
+    "start": "concurrently  \"react-scripts start\" \"json-server --watch db.json --port 4000 --routes routes.json --delay 1000\"",
     "build": "react-scripts build"
   },
   "eslintConfig": {

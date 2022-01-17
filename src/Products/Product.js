@@ -49,8 +49,13 @@ function Product() {
 
   useEffect(() => {
     (async () => {
-      const product = await retrieveProduct(id);
-      setProduct(product);
+      try {
+        const product = await retrieveProduct(id);
+        setProduct(product);
+      } catch (error) {
+        console.warn(error);
+        navigate('/', { state: { id } });
+      }
     })();
   }, [id]);
 
