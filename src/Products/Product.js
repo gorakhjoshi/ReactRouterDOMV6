@@ -57,7 +57,7 @@ function Product() {
         navigate('/', { state: { id } });
       }
     })();
-  }, [id]);
+  }, [id, navigate]);
 
   if (product === null) {
     return <div>Loading..</div>;
