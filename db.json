@@ -47,6 +47,12 @@
       "name": "Big Cheese",
       "price": 899,
       "description": "Large burger, all the cheese."
+    },
+    {
+      "id": "burger",
+      "name": "Chicken Burger",
+      "price": 350,
+      "description": "Special Burger"
     }
   ]
 }

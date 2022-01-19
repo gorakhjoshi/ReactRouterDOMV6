@@ -33,7 +33,7 @@ function App() {
           <Routes>
             <Route path='/*' element={<Products />} />
             <Route
-              path='admin'
+              path='admin/*'
               element={
                 <ProtectedRoute authenticated={authenticated}>
                   <Admin />
