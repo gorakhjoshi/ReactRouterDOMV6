@@ -3,26 +3,14 @@
     {
       "id": "the-wedge",
       "name": "The Wedge",
-      "description": "Tasty sandwich to max your tastebuds.",
+      "description": "Very tasty sandwich to max your tastebuds.",
       "price": 699
     },
     {
       "id": "spice-dog",
       "name": "Spice Dog",
       "description": "Prepare the spice, it's very nice.",
-      "price": 799
-    },
-    {
-      "id": "french-fries",
-      "name": "French Fries",
-      "description": "That side you've been missing.",
-      "price": 499
-    },
-    {
-      "id": "soulless-salad",
-      "name": "Soul-less Salad",
-      "description": "Just in case you're peckish.",
-      "price": 649
+      "price": 899
     },
     {
       "id": "cola-cola",
@@ -49,10 +37,10 @@
       "description": "Large burger, all the cheese."
     },
     {
-      "id": "burger",
-      "name": "Chicken Burger",
-      "price": 350,
-      "description": "Special Burger"
+      "id": "f",
+      "name": "f",
+      "price": 4,
+      "description": "f"
     }
   ]
 }

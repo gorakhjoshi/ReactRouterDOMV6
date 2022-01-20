@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import { css } from '@emotion/css';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { createProduct } from './ProductsServices';
+import {
+  createProduct,
+  retrieveProduct,
+  updateProduct,
+  deleteProduct,
+} from './ProductsServices';
 
 const ProductEditStyles = css`
   color: #fff;
@@ -10,7 +16,7 @@ const ProductEditStyles = css`
   padding: 15px;
   .ProductEdit {
     &-Input {
-      width: 100%;
+      width: 90%;
       border: 1px solid transparent;
       color: #fff;
       background: #1d1e26;
@@ -42,6 +48,8 @@ const ProductEditStyles = css`
 
 const ProductEdit = () => {
   const [form, setForm] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
     setForm({
@@ -50,10 +58,19 @@ const ProductEdit = () => {
       price: 0,
       description: '',
     });
-  }, []);
+
+    (async () => {
+      try {
+        const product = await retrieveProduct(id);
+        setForm(product);
+      } catch (error) {
+        console.warn(error);
+        navigate('/admin');
+      }
+    })();
+  }, [id, navigate]);
 
   const updateField = ({ name, value }) => {
-    console.log(value);
     setForm({
       ...form,
       [name]: value,
@@ -62,10 +79,32 @@ const ProductEdit = () => {
 
   const handleCreate = async () => {
     try {
-      const created = await createProduct(form);
-      console.log(created);
-    } catch (e) {
-      console.warn(e);
+      await createProduct(form);
+      navigate('/');
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
+  const handleUpdate = async () => {
+    try {
+      await updateProduct(form);
+      alert(`Product ${form.name} updated!`);
+      navigate('/');
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!window.confirm(`Do you really want to delete ${form.name}`)) {
+      return;
+    }
+    try {
+      await deleteProduct(form);
+      navigate('/');
+    } catch (error) {
+      console.warn(error);
     }
   };
 
@@ -114,6 +153,21 @@ const ProductEdit = () => {
         onClick={handleCreate}
       >
         Create
+      </button>
+      <button
+        type='button'
+        className='ProductEdit-Button'
+        onClick={handleUpdate}
+      >
+        Update
+      </button>
+
+      <button
+        type='button'
+        className='ProductEdit-Button'
+        onClick={handleDelete}
+      >
+        Delete
       </button>
     </form>
   );
